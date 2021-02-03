@@ -1,0 +1,43 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.cos'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//testImplementation 'org.springframework.security:spring-security-test'
+	
+	//추가 라이브러리
+	
+	//compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.3.3.RELEASE'  // https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
+	compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '9.0.41'	//jsp 지원  // https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper
+	compile group: 'javax.servlet', name: 'jstl', version: '1.2'		// https://mvnrepository.com/artifact/javax.servlet/jstl
+	
+	
+}
+
+test {
+	useJUnitPlatform()
+}
